@@ -98,6 +98,8 @@ else:
         elif (v == "-S" or v == "--src") and i < len(sys.argv) - 1:
             action = "view-source"
             assignments.append(sys.argv[i + 1])
+        elif v == "-H" or v == "--help":
+            action = "show-help"
     match action:
         case "execute":
             if assignments == []:
@@ -114,3 +116,9 @@ else:
         case "view-source":
             for i in assignments:
                 view_source(i)
+        case "show-help":
+            print("Help:")
+            print(" -I: Interactive mode")
+            print(" -A: Specify assignment to run (can be specified multiple times)")
+            print(" -S/src: View the specified assignment source code")
+            print(" -H/--help: Show this help")
