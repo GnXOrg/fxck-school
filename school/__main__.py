@@ -97,7 +97,7 @@ else:
             assignments.append(sys.argv[i + 1])
         elif v == "-S" or v == "--src":
             action = "view-source"
-            if i < len(sys.argv) - 1:
+            if i < len(sys.argv) - 1 and sys.argv[i + 1] not in ["-I", "-A", "-S", "--src", "-H", "--help"]:
                 assignments.append(sys.argv[i + 1])
         elif v == "-H" or v == "--help":
             action = "show-help"
