@@ -95,9 +95,10 @@ else:
             interactive = True
         elif v == "-A" and i < len(sys.argv) - 1:
             assignments.append(sys.argv[i + 1])
-        elif (v == "-S" or v == "--src") and i < len(sys.argv) - 1:
+        elif v == "-S" or v == "--src":
             action = "view-source"
-            assignments.append(sys.argv[i + 1])
+            if i < len(sys.argv) - 1:
+                assignments.append(sys.argv[i + 1])
         elif v == "-H" or v == "--help":
             action = "show-help"
     match action:
